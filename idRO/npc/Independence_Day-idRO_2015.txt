@@ -1,0 +1,167 @@
+//===== rAthena Script =======================================
+//= Indonesia 70th Independence Day Quest
+//===== Description: =========================================
+//= Special 2 weeks quest to celebrate Indonesia 70th Independence Day
+//= on idRO since Aug-12nd until Aug-26 2015.
+//= Gather lost cards from Poring 'family' monsters.
+//=
+//= PS:
+//= -. The messages on the lost cards are "Dirgahayu" "Republik" "Indonesia" "Ke 70"
+//= -. The monsters used are:
+//=    - 2061,E_STAPO
+//=    - 2062,E_POPORING
+//=    - 2063,E_DROPS
+//=    - 2064,E_MAGMARING
+//=    - 2065,E_METALING
+//= -. The NPC is greedy!
+//===== Changelogs: ==========================================
+//= 1.0 Initial release. [Cydh]
+//===== Tested on: ===========================================
+//= rAthena: https://github.com/rathena/rathena
+//============================================================
+
+// Quest NPC
+//============================================================
+prontera,160,286,5	script	Veteran Soldier#Indepen	4_M_HUMERCHANT,{
+	if (HUT70Indo) {
+		.@lostcard1 = countitem(7955); //Lost_Card1
+		.@lostcard2 = countitem(7956); //Lost_Card2
+		.@lostcard3 = countitem(7957); //Lost_Card3
+		.@lostcard4 = countitem(7958); //Lost_Card4
+		if (.@lostcard1 > 0 && .@lostcard2 > 0 && .@lostcard3 > 0 && .@lostcard4 > 0) {
+			.@getitem = 0;
+			if (HUT70Indo&4) {
+				emotion e_dum;
+				mes "[Veteran Soldier]";
+				mes "Oh, kamu menemukan Cards lagi.";
+				mes "Kartu yang kamu bawa kepada";
+				mes "saya telah cukup.";
+				mes "Tetapi saya lebih suka mempunyai cadangan.";
+				mes "Sekali lagi terima kasih.";
+			}
+			else {
+				mes "[Veteran Soldier]";
+				mes "Oh! Akhirnya saya mendapatkan kembali semuanya!";
+				mes "Pesan di dalam kartu itu";
+				mes "sangat berarti untuk saya";
+				emotion e_ho;
+				next;
+				mes "[Veteran Soldier]";
+				mes "Terima kasih banyak telah mengembalikannya kepada saya!";
+				mes "Saya benar-benar menghargainya.";
+				mes "Ini tidak besar tetapi hadiah untuk kebaikan kamu.";
+				mes "Ini adalah kepercayaan seorang prajurit!";
+				HUT70Indo |= 4;
+				.@getitem = 1;
+			}
+			delitem 7955,.@lostcard1;
+			delitem 7956,.@lostcard2;
+			delitem 7957,.@lostcard3;
+			delitem 7958,.@lostcard4;
+			if (.@getitem)
+				getitem 16266,1; // Indonesia_Beret_Box
+			else
+				sc_start SC_FOOD_VIT_CASH,1200000,10;
+		}
+		else if (HUT70Indo&4) {
+			mes "[Veteran Soldier]";
+			mes "Saya berterima kasih karena pertolongan kamu waktu itu.";
+			mes "Saya harap kamu kamu baik-baik saja";
+			mes "Sejak kita bertemu terakhir kali.";
+		}
+		else if (.@lostcard1 > 0 || .@lostcard2 > 0 || .@lostcard3 > 0 || .@lostcard4 > 0) {
+			mes "[Veteran Soldier]";
+			mes "Ah, kamu menemukan beberapa dari";
+			mes "lost cards!";
+			mes "Tetapi saya butuh semua kartunya";
+			next;
+			mes "[Veteran Soldier]";
+			mes "Untuk menyamakannya dengan yang lain";
+			mes "Saya tidak menginginkan satu";
+			mes "jenis saja tapi kamu harus mengumpulkan semuanya sekarang.";
+			mes "Tolong temukan semuanya";
+			mes "dan kembalikan kepada saya.";
+			next;
+			switch(select("Tentu saja.:Ceritakan tentang Lost Cards.")) {
+				case 1:
+					mes "[Veteran Soldier]";
+					mes "Saya mengharapkan kemampuanmu!";
+					break;
+				case 2:
+					callsub(OnMoreInfo);
+					break;
+			}
+		}
+		else {
+			mes "[Veteran Soldier]";
+			mes "Oh, tidak.. apa yang seharusnya saya lakukan.";
+			mes "Saya tidak punya waktu untuk kembali";
+			mes "untuk menemukan ^00CE14lost cards^000000 saya.";
+			mes "^00CE14Yang berjumlah 4 buah^000000......";
+			next;
+			mes "[Veteran Soldier]";
+			mes "Pasti mereka pelakunya,";
+			mes "Kupikir, aku melihat mereka ketika tertidur......";
+			mes "Monster seperti";
+			mes "^00CE14Poporing, Drops, Stapo, Metaling, Magmaring, dan lain-lain!^000000";
+		}
+		close;
+	}
+	mes "[Veteran Soldier]";
+	mes "Halo.";
+	mes "Saya kehilangan sesuatu dalam perjalanan,";
+	mes "Saya tidak dapat berdiam diri saja di sini.";
+	next;
+	mes "[Veteran Soldier]";
+	mes "Hmm......";
+	mes "Sebenarnya saya adalah seorang prajurit.";
+	mes "Saya tidak dapat mengatakan lebih jelas,";
+	mes "tetapi saya kehilangan sesuatu yang sangat penting.";
+	next;
+	switch(select("Katakan lebih jelas.:Selamat tinggal.")) {
+		case 1:
+			callsub(OnMoreInfo);
+			HUT70Indo = 1;
+			break;
+		case 2:
+			mes "[Veteran Soldier]";
+			mes "Ah, saya membuat kesalahan.";
+			mes "Itu semua salah saya.......";
+			mes "Selamat tinggal.";
+			break;
+	}
+	close;
+
+	OnMoreInfo:
+		mes "[Veteran Soldier]";
+		mes "Saya berkemah di sekitar sini, dan menumpahkan apple juice.";
+		mes "Bagaimanapun juga, itu bukan apa-apa.......";
+		mes "Kemudian karena terlalu lelah, saya tertidur.";
+		next;
+		mes "[Veteran Soldier]";
+		mes "Setelah beberapa saat,";
+		mes "saya akhirnya menyadari.";
+		mes "Saya telah kehilangan kartu itu yang berisi pesan penting...";
+		next;
+		mes "[Veteran Soldier]";
+		mes "Kurasa jenis monster poring yang melakukannya,";
+		mes "Yang berbau seperti apple, yang melakukan.";
+		mes "Monster seperti";
+		mes "^00CE14Poporing, Drops, Stapo, Metaling, Magmaring, dan lain-lain!^000000";
+		next;
+		mes "[Veteran Soldier]";
+		mes "Jika kamu menemukan ^00CE14Lost Cards^000000 saya,";
+		mes "Tolong kembalikan pada saya.";
+		mes "^00CE14Terdapat 4 jenis^000000,";
+		mes "masing-masing mempunyai pesannya sendiri.";
+		return;
+
+	OnTimer5000:
+		emotion e_gasp;
+		initnpctimer;
+		end;
+
+	OnInit:
+		initnpctimer;
+		end;
+}

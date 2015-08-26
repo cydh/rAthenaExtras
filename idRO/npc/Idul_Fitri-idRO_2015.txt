@@ -1,0 +1,471 @@
+//===== Cydh Script ==========================================
+//= idRO Idul Fitri 2015 Events
+//===== Description: =========================================
+//= Special event for Idul Fitri July 2015 (1436 H).
+//= - Free teleport service.
+//= - Kartu Lebaran & Ketupat Quest.
+//===== Changelogs: ==========================================
+//= 1.0.0 Initial release. [Cydh]
+//=       - Grammar and typo corrections.
+//= 1.1.0 Added Kartu Lebaran & Ketupat Quest [Cydh]
+//=       - 2-3 lines are missing, forgot to capture them. :P
+//===== Tested on: ===========================================
+//= rAthena: https://github.com/rathena/rathena
+//============================================================
+
+// Main NPC
+//============================================================
+-	script	idROFK::idRO_freekafra	-1,{
+	mes .name$;
+	mes "Halo, ^0000FF"+strcharinfo(0)+"^000000.";
+	mes "Ini adalah kejutan dari kantor";
+	mes "pusat kafra Aldebaran.";
+	mes "Menyambut perayaan Idul Fitri 1436,";
+	mes "kita akan memberikan layanan";
+	mes "spesial gratis.";
+	next;
+	mes .name$;
+	mes "Sebagai rasa kegembiraan, pemimpin";
+	mes "kafra memerintahkan";
+	mes "untuk memberikan kamu kesempatan";
+	mes "untuk berkunjung ke tempat yang spesial.";
+	mes "Tempat yang jarang sekali";
+	mes "dikunjungi.";
+	next;
+	mes .name$;
+	mes "Kafra di setiap kota akan";
+	mes "memindahkan kamu ke";
+	mes "dungeon atau kota yang belum";
+	mes "pernah ada jasa layanan teleport.";
+	next;
+	switch(select("Gunakan layanan teleport.","Saya tidak tertarik.")) {
+		case 1:
+			next;
+			mes .name$;
+			mes "Jasa teleport ini gratis.";
+			mes "Kamu bebas memilih tempat yang akan";
+			mes "kamu kunjungi.";
+			mes "Beritahukan kepada saya tempat";
+			mes "tujuan kamu.";
+			next;
+			.@menu$ = "";
+			for (.@i = 0; .@i < getarraysize(.maps$); .@i++) {
+				.@menu$ = .@menu$ + .maps$[.@i*2] + ":";
+			}
+			.@menu$ = .@menu$ + ":Batal";
+			.@sel = select(.@menu$)-1;
+			if (.@sel-1 != .@i) {
+				callsub(OnWarp,.@sel*2);
+				break;
+			}
+			next;
+			mes .name$;
+			mes "Kamu membatalkannya.";
+			// Fall through
+		case 2: goto(OnCancel); break;
+	}
+	end;
+
+	OnWarp:
+		.@i = getarg(0);
+		next;
+		mes .name$;
+		mes "Terima kasih.";
+		close2;
+		warp .maps$[.@i+1],.xy[.@i],.xy[.@i+1];
+		end;
+
+	OnCancel:
+		next;
+		mes .name$;
+		mes "Pelayanan Kafra dapat selalu kamu gunakan.";
+		mes "Kami akan selalu membantu kamu.";
+		close;
+
+	OnInit:
+		.name$ = "[Kafra Glaris]";
+		// Warp List
+		setarray .maps$[0],"Payon","payon",
+							"Morocc","morocc",
+							"Prontera","prontera",
+							"Aldebaran","aldebaran",
+							"Geffen","geffen",
+							"Juno","yuno",
+							"Alberta","alberta",
+							"Dewata","dewata",
+							"Brasilis","brasilis",
+							"pay_dun02","pay_dun02",
+							"gl_sew03","gl_sew03",
+							"alde_dun02","alde_dun02",
+							"mag_dun01","mag_dun01",
+							"gefenia01","gefenia01",
+							"thor_v01","thor_v01",
+							"mosk_dun01","mosk_dun01",
+							"Gunung Krakatau","dew_dun01",
+							"bra_dun01","bra_dun01";
+		setarray .xy[0],164,56,
+						157,50,
+						119,72,
+						143,107,
+						120,37,
+						158,35,
+						113,57,
+						230,84,
+						196,214,
+						146,130,
+						179,286,
+						116,179,
+						119,72,
+						46,105,
+						18,231,
+						189,48,
+						292,160,
+						81,51;
+		end;
+}
+
+// Kafra Agents
+payon,148,93,5	duplicate(idRO_freekafra)	Kafra Agent#pay	4_F_KAFRA5
+morocc,166,112,5	duplicate(idRO_freekafra)	Kafra Agent#moc	4_F_KAFRA5
+prontera,165,75,5	duplicate(idRO_freekafra)	Kafra Agent#prt	4_F_KAFRA5
+aldebaran,125,108,5	duplicate(idRO_freekafra)	Kafra Agent#ald	4_F_KAFRA5
+geffen,103,55,5	duplicate(idRO_freekafra)	Kafra Agent#gef	4_F_KAFRA5
+yuno,168,187,5	duplicate(idRO_freekafra)	Kafra Agent#yun	4_F_KAFRA5
+alberta,110,54,5	duplicate(idRO_freekafra)	Kafra Agent#alb	4_F_KAFRA5
+
+// Kartu Lebaran & Ketupat Quest
+//============================================================
+prontera,169,277,3	script	Apollo#IdulFitri	4_M_RACHMAN2,{
+	if (lebaran2015 == 0) { // Belum dimulai
+		mes "[Apollo]";
+		mes "Halo.";
+		mes "Saya datang ke sini dari tempat yang jauh,";
+		mes "untuk merayakan kebersamaan bersama orang-orang di sekitar sini.";
+		mes "Apa kamu ingin merayakannya bersamaku?";
+		next;
+		switch (select("Saya mau.:Tidak.")) {
+			case 1:
+				callsub(OnInfo);
+				lebaran2015 = 1;
+				close;
+			case 2:
+				mes "[Apollo]";
+				mes "Hmm... Sayang sekali kalau begitu.";
+				close;
+		}
+	}
+	else if (lebaran2015 == 15) { // Udah ngomong ama semua
+		if (countitem(517) < 10 || countitem(519) < 10 || countitem(513) < 10 || countitem(511) < 10) {
+			callsub(OnNeedReq);
+			close;
+		}
+		mes "[Apollo]";
+		mes "Kamu telah menyelesaikan tugasmu dengan baik.";
+		mes "Saya telah mendengarnya dari saudaraku";
+		mes "sebelum kamu sampai ke sini.";
+		next;
+		mes "[Apollo]";
+		mes "Banyak orang akan merasakan kebahagiaan di hari raya";
+		mes "oleh semua yang telah kamu perbuat hari ini.";
+		next;
+		mes "[Apollo]";
+		mes "Ini, terimalah.";
+		mes "Saya membuat masakan ini";
+		mes "secara spesial untukmu.";
+		mes "Masakan ini sangatlah mirip nikmat,";
+		mes "dan bisa memberikan cukup penyembuhan jika digunakan.";
+		next;
+		mes "[Apollo]";
+		mes "Baiklah kalau begitu,";
+		mes "Sekarang saya akan kembali bekerja.";
+		mes " ^00CE14Semoga kamu selalu mendapat yang terbaik^000000";
+		mes "Sampai bertemu lagi.";
+		close2;
+		lebaran2015 = 16;
+		delitem(517,10); // Meat
+		delitem(519,10); // Milk
+		delitem(513,10); // Banana
+		delitem(511,10); // Green Herb
+		getitem(685,5); // RAMADAN aka Kartu Lebaran
+		getexp 1000,1000; //! TODO: Confirm the EXP gained!
+		end;
+	}
+	else if (lebaran2015 >= 1 && lebaran2015 < 15) { // Quest dalam proses
+		mes "[Apollo]";
+		mes "Bagaimana tugasmu?";
+		next;
+		switch (select("Uh.. Saya lupa apa yang harus aku lakukan:Baik.")) {
+			case 1:
+				callsub(OnInfo);
+				close;
+			case 2:
+				mes "[Apollo]";
+				mes "Bagus kalau begitu.";
+				mes "Hari ini adalah pertama kalinya saya membuat dish yang sangat banyak.";
+				mes "dan hal ini tidaklah mudah.........";
+				mes "tapi saya tetap menikmatinya!";
+				close;
+		}
+	}
+	else { // Selesai, ada quest tambahan
+		mes "[Apollo]";
+		mes "Oo... kamu adalah "+strcharinfo(0)+".";
+		mes "Hampir saja saya melupakanmu,";
+		mes "HaHa.";
+		mes "Um, jika kamu menyumbangkan beberapa bahan";
+		mes "yang saya butuhkan hari ini,";
+		mes "Saya akan membuatkan ^00CE14KETUPAT^000000.";
+		next;
+		switch (select("Tenang saja.:Apa yang kamu butuhkan?:Saya sudah mempunyainya.")) {
+			case 1:
+				mes "[Apollo]";
+				mes "HaHa. Terima kasih.";
+				close;
+			case 2:
+				mes "[Apollo]";
+				mes "^00CE14100 buah masing-masing untuk Meat, Milk, dan Banana^000000";
+				mes "^00CE1420 buah masing-masing untuk Green Herb dan Yellow Herb^000000";
+				mes "Saya akan menghargai semua bahan yang saya perlukan untuk memasak,";
+				mes "Tidak banyak orang-orang yang bisa membawakanku";
+				mes "bahan-bahan tersebut.........";
+				close;
+			case 3:
+				if (countitem(517) < 50 && countitem(519) < 50 && countitem(513) < 50 && countitem(511) < 10 && countitem(508) < 10) {
+					callsub(OnNeedReq);
+					close;
+				}
+				mes "[Apollo]";
+				mes "ooh.. Terima kasih,";
+				mes "kalau begitu, terimalah ini";
+				mes "^00CE14KETUPAT^000000 buatanku";
+				mes "Saya juga membuatkan ketupat ini untuk seluruh penduduk kota.";
+				next;
+				mes "[Apollo]";
+				mes "Dan kamu juga ikut berperan di dalamnya,";
+				mes ""+strcharinfo(0)+",";
+				mes " ";
+				mes " ^00CE14Semoga kamu selalu mendapat yang terbaik^000000.";
+				emotion e_thx;
+				delitem(517,50); // Meat
+				delitem(519,50); // Milk
+				delitem(513,50); // Banana
+				delitem(511,10); // Green Herb
+				delitem(508,10); // Yellow Herb
+				getitem(552,1); // Ketupat
+				close;
+		}
+	}
+	end;
+
+	OnInfo:
+		mes "[Apollo]";
+		mes "Sekarang, kita sedang merayakan hari raya lebaran yang penuh kemenangan.";
+		mes "Dan sudah pasti! Masakan dan kue-kue yang nikmat menjadi ciri khas di hari ini.";
+		mes "Saya akan membuatkan semua masakannya.......";
+		next;
+		mes "[Apollo]";
+		mes "Saya ingin kamu membawakan beberapa bahannya, "+strcharinfo(0)+".";
+		mes "Beberapa saudaraku yang tersebar di beberapa tempat di negara ini";
+		mes "akan siap untuk membantumu.";
+		mes "Ikuti petunjuk yang kuberikan.";
+		next;
+		mes "[Apollo]";
+		mes "1. Pergilah ke ^FF6A00Payon^000000 dan temui ^0000FFLingo^000000.";
+		mes "Dia akan memberikanmu ^00CE1410 buah Meat^000000.";
+		mes "2. Lalu ke ^FF6A00Izlude^000000 dan kunjungi ^0000FFMomo^000000.";
+		mes "Dia akan memberikanmu ^00CE1410 buah Banana^000000.";
+		mes "3. Serta pergi ke ^FF6A00Alberta^000000 untuk menemui ^0000FFSena^000000.";
+		mes "Dia akan memberikanmu ^00CE1410 buah Milk^000000.";
+		next;
+		mes "[Apollo]";
+		mes "Dan satu hal lagi,";
+		mes "Saya juga membutuhkan ^00CE1410 buah Green Herb^000000,";
+		mes "cobalah dapatkan semua bahan-bahannya.";
+		next;
+		mes "[Apollo]";
+		mes "Oh iya... tolong juga perhatikan saudaraku jika persiapan mereka untuk";
+		mes "menyambut hari raya selalu baik-baik saja.";
+		mes "Baiklah, kita berjumpa lagi setelah kamu mendapatkan semua bahannya!";
+		return;
+
+	OnNeedReq:
+		mes "[Apollo]";
+		//mes "... bahannya"; //! TODO: Missing text!
+		mes "Apakah mungkin kamu kehilangan bahan-bahannya saat kamu menuju kemari?";
+		mes "Tidak apa-apa... setidaknya kamu mencoba membantuku, terima kasih.";
+		return;
+}
+
+payon,152,98,5	script	Lingo#IdulFitri	4_KID01,{
+	if (lebaran2015 == 0) { // Percakapan biasa
+		mes "[Lingo]";
+		mes "Hmm, apakah saya sudah mengemas bahannya dengan baik?";
+		mes "Hmmm~";
+		mes "Ok, kelihatannya sudah cukup baik.";
+		next;
+		emotion e_gasp;
+		mes "[Lingo]";
+		mes "Eh?";
+		mes "Saya sangat sibuk, sampai-sampai tidak menyadari kalau kamu sudah berdiri di samping.";
+		mes "Saya mesti mengirimkan bahan membuat dish untuk perayaan hari raya";
+		mes "ke kota ^FF6A00Prontera^000000.";
+		mes "Kalau begitu, selamat bersenag-senang!";
+		close;
+	}
+	else if (lebaran2015&2) { // Udah ngomong sama doi
+		mes "[Lingo]";
+		mes "Kamu belum pegi juga?";
+		mes "Pergilah dan antarkan ^00CE1410 buah Meat^000000";
+		mes "Yang telah saya berikan kepada saudaraku ^0000FFApollo^000000 di ^FF6A00Prontera^000000";
+		mes "Terima kasih dan jagalah baik-baik.";
+		close;
+	}
+	else if (lebaran2015&1) { // Proses
+		mes "[Lingo]";
+		mes "Kamu pasti "+strcharinfo(0)+"!";
+		mes "Saya mendengar bahwa kamu akan mengunjungiku.";
+		mes "Bawalah ini ^00CE1410 buah Meat^000000 untuk ^0000FFApollo^000000";
+		mes "yang berada di ^FF6A00Prontera^000000";
+		next;
+		mes "[Lingo]";
+		mes "Ini sangat penting buat kamu bawakan kepadanya";
+		mes "semua bahan ^00CE1410 Meat^000000.";
+		mes "Sering kali terjadi, bahan yang akan";
+		mes "dikirimkan hilang.......";
+		next;
+		mes "[Lingo]";
+		mes "Untuk itu,";
+		mes "Untuk membantumu supaya tidak lapar saat dalam perjalanan,";
+		mes "Saya akan memberikanmu ^00CE14Kartu Lebaran & Ketupat^000000.";
+		mes "Terima kasih telah meluangkan waktu untuk membantu kami!";
+		close2;
+		lebaran2015 |= 2;
+		getitem(517,10); // Meat
+		getitem(583,1); // KETUPAT_
+		end;
+	}
+	else { // Kelar vroh!
+		mes "[Lingo]";
+		mes "Hai, "+strcharinfo(0)+"!";
+		mes "Saya melihat keinginan yang besar dari wajahmu!";
+		mes " ^00CE14Semoga kamu selalu mendapat yang terbaik^000000.";
+		close;
+	}
+}
+
+// NOTE: The coordinates are for old Izlude
+izlude,94,93,5	script	Momo#IdulFitri	4_M_BIBI,{
+	if (lebaran2015 == 0) { // Percakapan biasa
+		mes "[Momo]";
+		mes "Arghh, sibuk.. sibuk.";
+		mes "Sejak saat itu pekerjaanku menjadi begitu banyak.";
+		next;
+		emotion e_gasp;
+		mes "[Momo]";
+		//mes "... di sini?"; //! TODO: Missing text!
+		mes "Tidakkah saya terlihat begitu sibuk?";
+		mes "Saya mesti mengirimkan bahan membuat dish untuk perayaan hari raya";
+		mes "ke kota ^FF6A00Prontera^000000.";
+		close;
+	}
+	else if (lebaran2015&4) { // Udah ngomong sama doi
+		mes "[Momo]";
+		mes "Hah? Apa kamu lupa untuk pergi kemana?";
+		mes "Baiklah... antarkan ^00CE1410 buah Banana^000000";
+		mes "Yang telah saya berikan kepada saudaraku ^0000FFApollo^000000 di ^FF6A00Prontera^000000";
+		mes "Terima kasih dan jagalah baik-baik.";
+		close;
+	}
+	else if (lebaran2015&1) { // Proses
+		mes "[Momo]";
+		mes "Ah ha, "+strcharinfo(0)+"~!";
+		mes "Akhirnya kamu sampai di sini.";
+		mes "Bawalah ini ^00CE1410 buah Banana^000000 untuk ^0000FFApollo^000000";
+		mes "yang ada di ^FF6A00Prontera^000000";
+		next;
+		mes "[Momo]";
+		mes "Ini sangat penting buat kamu bawakan kepadanya";
+		mes "semua bahan ^00CE1410 buah Banana^000000.";
+		mes "Jangan sampai memakannya bagaimanapun";
+		mes "rasa lapar yang kamu dapati saat dalam perjalanan.";
+		mes "Sangat berat buatku jika mendengarnya.";
+		next;
+		mes "[Momo]";
+		mes "Jadi untuk mencegahnya,";
+		mes "Saya menyiapkan sesuatu untuk dimakan,";
+		mes "yaitu ^00CE14Kartu Lebaran & Ketupat^000000 !!";
+		mes "Bawalah dan simpat sebaik-baiknya.";
+		close2;
+		lebaran2015 |= 4;
+		getitem(513,10); // Banana
+		getitem(583,1); // KETUPAT_
+		end;
+	}
+	else { // Kelar vroh!
+		mes "[Momo]";
+		mes "Waahh! "+strcharinfo(0)+",";
+		mes "kita berjumpa lagi!";
+		mes "Pekerjaan kami bai-baik saja, terima kasih.";
+		mes " ^00CE14Semoga kamu selalu dalam kebaikan^000000.";
+		close;
+	}
+}
+
+alberta,175,138,3	script	Sena#IdulFitri	4_M_DEBON,{
+	if (lebaran2015 == 0) { // Percakapan biasa
+		mes "[Sena]";
+		mes "Wahhh.........";
+		mes "Saya sangat sibuk!!";
+		next;
+		emotion e_gasp;
+		mes "[Sena]";
+		mes "Kyaa, kamu menakutiku.";
+		mes "Mungkin akan terlihat seperti ini,";
+		mes "tapi saya sedang melakukan sesuatu yang repot dengan hitungan.";
+		mes "dari bahan-bahan yang akan dikirimkan ke kota ^FF6A00Prontera^000000.";
+		mes "untuk merayakan pesta hari raya.";
+		mes "Baiklah, selamat bersenang-senang........";
+		close;
+	}
+	else if (lebaran2015&8) { // Udah ngomong sama doi
+		mes "[Sena]";
+		mes "Kenapa masih di sini?";
+		mes "Saya harap ^00CE1410 buah Milk^000000 yang saya berikan";
+		mes "sampai dengan selamat diantarkan ke saudaraku ^0000FFApollo^000000 di ^FF6A00Prontera^000000";
+		mes "Safe Trip!";
+		close;
+	}
+	else if (lebaran2015&1) { // Proses
+		mes "[Sena]";
+		mes "Apakah kamu... "+strcharinfo(0)+"?";
+		mes "Akhirnya, kamu datang tepat saat saya membutuhkan.";
+		mes "Bawalah ini ^00CE1410 buah Milk^000000 kepada ^0000FFApollo^000000";
+		mes "yang ada di ^FF6A00Prontera^000000";
+		next;
+		mes "[Sena]";
+		mes "Ini sangat penting buat kamu bawakan kepadanya";
+		mes "semua bahan ^00CE1410 bahan Milk^000000.";
+		mes "Di sana ada beberapa orang kehabisan bahan";
+		mes "dari susu kami, jadi saya mengkhawatirkannya.......";
+		mes "Bawalah bahan ini dan jangan sampai kamu meminumnya.";
+		next;
+		mes "[Sena]";
+		mes "Untuk itu,";
+		mes "Saya akan membekalimu sesuatu jika kamu lapar dalam perjalanan,";
+		mes "ini adalah ^00CE14Kartu Lebaran & Ketupat^000000.";
+		mes "Kalau begitu, selamat tinggal dan berhati-hatilah.";
+		close2;
+		lebaran2015 |= 8;
+		getitem(519,10); // Milk
+		getitem(583,1); // KETUPAT_
+		end;
+	}
+	else { // Kelar vroh!
+		mes "[Sena]";
+		mes "Ah ha, apakah kamu "+strcharinfo(0)+"?";
+		mes "Senang bertemu denganmu lagi!";
+		mes "Saya sangat berterima kasih dengan apa yang telah kamu lakukan untuk membantu kami.";
+		mes " ^00CE14Semoga kamu selalu dalam kebaikan^000000.";
+		close;
+	}
+}

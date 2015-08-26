@@ -1,0 +1,650 @@
+// 0: New (Eventually)
+//0,17613,5000	//Chronosian_Lucky_Eggl (20150819)
+
+// 1: Headgear
+1,18934 ,12500   //Fox Ears Bell Ribbon
+1,5380  ,15000   //Fish Head Hat
+1,5381  ,15000   //Santa Poring Hat
+1,5382  ,15000   //Bell Ribbon
+1,2214  ,6250    //Bunny Band
+1,2217  ,500     //Biretta
+1,2227  ,500     //Cap
+1,2229  ,625     //Helm
+1,2252  ,1250    //Wizard Hat
+1,2280  ,1250    //Sakkat
+1,2285  ,6250    //Apple of Archer
+1,2287  ,2500    //Pirate Bandana
+1,5119  ,500     //Super Novice Hat
+1,5120  ,1250    //Bucket Hat
+1,2278  ,75      //Mr. Smile
+1,2281  ,1250    //Phantom of Opera
+1,5087  ,375     //Expressionless Faced Mask
+1,5088  ,375     //Suprised Eyes Mask
+1,5089  ,375     //Annoyed looking Mask
+1,5090  ,375     //Goblin Leader's Mask
+1,2225  ,500     //Goggles
+1,2264  ,2500    //Munak Hat
+1,5046  ,2500    //Bongun Hat
+1,2213  ,2500    //Kitty Band
+1,2269  ,2500    //Romantic Flower
+1,2270  ,2500    //Romantic Leaf
+1,2299  ,2500    //Orc Helm
+1,5008  ,2500    //Puppy Love
+1,5082  ,625     //Mushroom Band
+1,2245  ,6250    //Sweet Gent
+1,2286  ,6250    //Elven Ears
+1,5014  ,1250    //Fin Helm
+1,2296  ,1250    //Binoculars
+1,5118  ,2500    //Puppy Headband
+1,2248  ,6250    //Western Grace
+1,5035  ,7500    //Poring Hat
+1,2254  ,10000   //Angel Wing
+1,2233  ,750     //Circlet
+1,2231  ,750     //Gemmed Sallet
+1,2255  ,5000    //Evil Wing
+1,2258  ,6250    //Spiky Band
+1,2295  ,7500    //Blinker
+1,5026  ,8000    //hat of Cooker
+1,5032  ,7500    //Picnic Hat
+1,5210  ,20000   //Flapping Angel Wing
+1,2234  ,10000   //Tiara
+1,2235  ,10000   //Crown
+1,2271  ,10000   //Jack a Dandy
+1,5229  ,7500    //Brown Deviruchi Hat
+1,5227  ,7500    //Red Deviruchi Hat
+1,5228  ,7500    //Gray Deviruchi Hat
+1,5233  ,7500    //Blue Drooping Cat
+1,5231  ,7500    //Brown Drooping Cat
+1,5232  ,7500    //Pink Drooping Cat
+1,5230  ,7500    //Gray Drooping Cat
+1,5234  ,7500    //Yellow Drooping Cat
+1,5236  ,7500    //Blue Beanie
+1,5235  ,7500    //Brown Beanie
+1,5237  ,7500    //Pink Beanie
+1,5241  ,7500    //Blue Mage Hat
+1,5240  ,7500    //Brown Mage Hat
+1,5238  ,7500    //Red Mage Hat
+1,5239  ,7500    //Gray Mage Hat
+1,5242  ,7500    //Yellow Mage Hat
+1,5294  ,12500   //Whisper Mask
+1,5292  ,12500   //Dragon Skull
+1,5291  ,12500   //Kettle Hat
+1,5284  ,12500   //Water Lily Crown
+1,5139  ,12500   //Hibiscus
+1,5140  ,12500   //Charming Ribbon
+1,5213  ,12500   //Black Bunny Band
+1,5286  ,12500   //Pecopeco Hairband
+1,2249  ,7500    //Coronet
+1,5096  ,1250    //Assassin Mask
+1,5151  ,12500   //Note Headphone
+1,5431  ,12500   //Cuckoo Hat
+1,5410  ,12500   //Brown Paperbag Hat
+1,5478  ,12500   //Classic Hat
+1,5385  ,12500   //Yoyo Hat
+1,5137  ,12500   //Alice Doll Hat
+1,5491  ,12500   //Outlaw's Hat
+1,5335  ,12500   //Jumping Poring
+1,5463  ,12500   //Rainbow Scarf
+1,5293  ,12500   //Ramen Hat
+1,5198  ,12500   //Party Rabbit Hat
+1,5289  ,12500   //Vanilmirth Hat
+1,5258  ,12500   //Afro Wig
+1,5143  ,12500   //Kabuki Mask
+1,5334  ,12500   //I-want-to-fly Angeling
+1,5099  ,12500   //Cat Hat
+1,5211  ,12500   //Dress Hat
+1,5333  ,12500   //Radio Antenna
+1,5288  ,12500   //Red Glasses
+1,5257  ,12500   //Soulless Wing
+1,5285  ,12500   //Vane Hairpin
+1,5189  ,12500   //Hat of Falling Leaf
+1,5146  ,12500   //Elephant Hat
+1,5142  ,12500   //Crescent Helm
+1,5138  ,12500   //Magic Eyes
+1,5188  ,12500   //Minstrel Hat
+1,5212  ,12500   //Satellite Hairband
+1,5181  ,12500   //Helm of Darkness
+1,5182  ,12500   //Puppy Hat
+1,5183  ,12500   //Bird Nest Hat
+1,5185  ,12500   //Laurel Wreath
+1,5186  ,12500   //Geographer Band
+1,5253  ,12500   //Lif Doll Hat
+1,5256  ,12500   //Valkyrie Feather Band
+1,5287  ,12500   //Vacation Hat
+1,5490  ,12500   //Anubis Helm
+1,5501  ,12500   //Pride Of Pirates
+1,5502  ,12500   //Necromencer's Hood
+1,5498  ,12500   //Wondering Wolf Helm
+1,5495  ,12500   //Power of Thor
+1,5503  ,12500   //Rabbit Magic Hat
+1,5499  ,12500   //Pizza Hat
+1,5505  ,12500   //Asara Fairy Hat
+1,5496  ,12500   //Dice Hat
+1,2289  ,5000    //Poo Poo Hat
+1,5066  ,5000    //Succubus Horns
+1,5072  ,5000    //Inccubus Horns
+1,5003  ,5000    //Joker Jester
+1,5497  ,12500   //King Tiger Doll Hat
+1,5504  ,6250    //Special Wedding Veil
+1,5508  ,12500   //Shark Hat
+1,5467  ,12500   //Helm Of Dragoon
+1,5655  ,12500   //Dark Snake Lord's Hat
+1,5546  ,12500   //Aries Crown
+1,5545  ,12500   //Aries Diadem
+1,2291  ,725     //Masquerade
+1,2274  ,4250    //Ghost Bandana
+1,5550  ,12500   //Taurus Crown
+1,5549  ,12500   //Taurus Diadem
+1,5547  ,12500   //Flower Katusa
+1,5657  ,7500    //Captain's Pipe
+1,5548  ,7500    //Scarlet Rose
+1,5537  ,12500   //Quati Hat
+1,5538  ,12500   //Tucan Hat
+1,5539  ,12500   //Jaguar Hat
+1,5470  ,12500   //Darkness Eyes
+1,5471  ,12500   //Reginleif's Wing
+1,5511  ,12500   //Samanbaia
+1,5526  ,12500   //Lady Tanee Hat
+1,5529  ,12500   //Evil`s Bone Hat
+1,5527  ,12500   //Lunatic Hat
+1,5509  ,12500   //Sting Hat
+1,5363  ,12500   //Helm Of Abyss
+1,5395  ,12500   //Tiraya Bonnet
+1,5464  ,12500   //White Lady Doll
+1,5563  ,12500   //Dolor Hat
+1,5528  ,12500   //King Frog Hat
+1,5558  ,12500   //Saci Hat
+1,5554  ,12500   //Octopus Hat
+1,5555  ,12500   //Leaf Cat Hat
+1,5556  ,12500   //Fur Seal Hat
+1,5557  ,12500   //Wild Rose Hat
+1,5514  ,12500   //Pisces Diadem
+1,5515  ,12500   //Pisces Crown
+1,5316  ,12500   //Umbrella Hat
+1,5396  ,12500   //Jasper Crest
+1,5573  ,12500   //Dokkaebi Horn
+1,5172  ,5000    //Beret
+1,5413  ,12500   //Popcorn Hat
+1,5594  ,12500   //Donut In Mouth
+1,5585  ,12500   //Rune Hairband
+1,18533 ,12500   //Honeybee Hat
+1,5777  ,12500   //Remover Hat
+1,18531 ,12500   //Drooping Permeter
+1,5148  ,10000   //Guildmaster's Cap
+1,5530  ,12500   //Raven Cap
+1,5359  ,15000   //Master's Hat
+1,18616 ,7500    //Long Tongue
+1,18618 ,10000   //Airplane Hat
+1,18626 ,15000   //Gelato Hat
+1,18589 ,12500   //Strawberry Hat
+1,18596 ,12500   //Sprout Hat
+1,18619 ,12500   //Thief's Bandana
+1,18620 ,7500    //Heart Eye Patch
+1,18574 ,12500   //Helm Of Death
+1,18697 ,12500   //Syringe In Mouth
+1,18698 ,12500   //Cheesy Snack In Mouth
+1,18729 ,12500   //MVP Basketball Hat
+1,18692 ,12500   //Mike Hat
+1,18694 ,12500   //Red Hood
+1,18695 ,12500   //Phoenix Crown
+1,5045  ,12500   //Magician Hat
+1,18642 ,12500   //Scissorhand
+1,18643 ,12500   //Rockhand
+1,18644 ,12500   //Paperhand
+1,5403  ,12500   //Fish In Mouth
+1,5020  ,12500   //Kafra Band
+1,18713 ,12500   //Monkey On Fur Hat
+1,18759 ,12500   //Stretched Nose M
+1,19518 ,12500   //Rainbow
+1,19519 ,12500   //Lightning Cloud
+1,19520 ,12500   //Rain Cloud
+1,19521 ,12500   //Charlie Hat
+1,19522 ,12500   //Mini Crown1
+1,18630 ,12500   //Drooping Alicel
+1,18636 ,12500   //Ribbon of Bride
+1,18665 ,12500   //Orange In Mouth
+1,18666 ,12500   //CD In Mouth
+1,18676 ,12500   //64-type Glasses
+1,18679 ,12500   //Abacus In Mouth
+1,18681 ,12500   //Puppy Ears Hat
+1,5575  ,12500   //Rice Ball Hat
+1,5591  ,12500   //Desert Prince
+1,5388  ,12500   //Snake Hat
+1,13906 ,32500   //Kitty Set Box
+1,13908 ,20000   //Deviruchi Set Box
+1,13420 ,12500   //Honglyun Sword
+1,13553 ,2000    //5 Dungeon Teleport Scroll Box
+1,5584  ,12500   //Majestic Devil Horn
+1,5765  ,12500   //Black Tail Ribbon
+1,5766  ,12500   //Amistr Cap
+1,5767  ,12500   //Samurai Mask
+1,2855  ,12500   //Whikebain's Black Tail
+1,5789  ,12500   //Thanatos's Mal Mask
+1,5790  ,12500   //Holy Mom Love
+1,5776  ,12500   //Blazing Sun
+1,6098  ,100     //Small Snow Flower
+1,6100  ,100     //Damp Darkness
+1,6110  ,100     //Vital Flower In
+1,19507 ,12500   //Fine Sun
+1,19515 ,12500   //Yellow Hat
+1,19517 ,12500   //Cocks Comb
+1,19516 ,12500   //Singing Bird
+1,19509 ,10000   //Butterfly Wing Ear
+1,19510 ,10000   //Nut On Head
+1,19513 ,7500    //Chicken Beak
+1,19514 ,7500    //Charlie Beard
+
+
+// 2: Consumable
+2,17076 ,250     //Empty Bottle Box500
+2,633   ,125     //Baked Yam
+2,619   ,125     //Unripe Apple
+2,620   ,125     //Orange Juice
+2,621   ,125     //Bitter Herb
+2,622   ,125     //Rainbow Carrot
+2,623   ,125     //Earthworm the Dude
+2,624   ,125     //Rotten Fish
+2,625   ,125     //Rusty Iron
+2,626   ,125     //Monster Juice
+2,627   ,125     //Sweet Milk
+2,628   ,125     //Well-Dried Bone
+2,629   ,125     //Singing Flower
+2,630   ,125     //Dew Laden Moss
+2,631   ,125     //Deadly Noxious Herb
+2,632   ,125     //Fatty Chubby Earthworm
+2,635   ,125     //Horror of Tribe
+2,636   ,125     //No Recipient
+2,640   ,125     //Shining Stone
+2,644   ,25      //Gift Box
+2,659   ,125     //Heart of Her
+2,984   ,50      //Oridecon
+2,985   ,75      //Elunium
+2,989   ,1250    //Emperium Anvil
+2,13814 ,2000    //Healing Box
+2,634   ,250     //Tropical Banana
+2,642   ,750     //Book of Devil
+2,641   ,750     //Contracts in Shadow
+2,684   ,100     //Durian
+2,638   ,750     //Silver Knife of Chastity
+2,639   ,750     //Armlet of Obedience
+2,975   ,1500    //Scarlet Dyestuffs
+2,976   ,1500    //Lemon Dyestuffs
+2,978   ,1500    //Cobaltblue Dyestuffs
+2,979   ,1500    //Darkgreen Dyestuffs
+2,980   ,1500    //Orange Dyestuffs
+2,981   ,1500    //Violet Dyestuffs
+2,982   ,1500    //White Dyestuffs
+2,983   ,1500    //Black Dyestuffs
+2,554   ,100     //Mojji
+2,14293 ,300     //Bodyguard Contract Box
+2,14294 ,1200    //Bodyguard Contract 5Box
+2,13569 ,350     //PVP Teleport Scroll Box
+2,13849 ,250     //Yellow Butterfly Wing 5 Box
+2,13850 ,450     //Yellow Butterfly Wing 10 Box
+2,13851 ,250     //Green Butterfly Wing 5 Box
+2,13852 ,450     //Green Butterfly Wing 10 Box
+2,13853 ,250     //Red Butterfly Wing 5 Box
+2,13854 ,450     //Red Butterfly Wing 10 Box
+2,13855 ,250     //Blue Butterfly Wing 5 Box
+2,13856 ,450     //Blue Butterfly Wing 10 Box
+2,13905 ,5500    //Hardcore Set Box
+2,13906 ,32500   //Kitty Set Box
+2,13909 ,1000    //MVP Hunt Set Box
+2,13910 ,3750    //Dish Set Box
+2,12351 ,150     //Shouting Megaphone
+2,660   ,850     //Prohibition Red Candle
+2,661   ,850     //Sway Apron
+2,13553 ,2000    //5 Dungeon Teleport Scroll Box
+2,6223  ,75      //Carnium
+2,6224  ,100     //Bradium
+2,637   ,150     //Old Broom
+2,7823  ,100     //Meat Skewer
+2,17079 ,500     //Indonesian Box 2
+2,6113  ,100     //Vital Flower
+2,6114  ,100     //Flame Gemstone
+2,6115  ,100     //Kid's Dumpling
+2,6098  ,100     //Small Snow Flower
+2,6100  ,100     //Damp Darkness
+2,6110  ,100     //Vital Flower In
+2,6225  ,15000   //HD Carnium
+2,6226  ,11250   //HD Bradium
+2,6104  ,100     //Big Cell
+2,6108  ,100     //Apple Pudding
+2,6112  ,100     //Fresh Plant
+2,6097  ,100     //Sweet Pumpkin Pie
+2,17106 ,15000   //Gym Membership Card Box10
+2,7776  ,2000    //Gym Membership Card
+2,16770 ,4750    //Silvervine Box10
+2,16771 ,19000   //Silvervine Box40
+2,16979 ,2000    //Silvervine Box4
+2,7825  ,5000    //Heroic Stone
+2,12208 ,200     //Battle Manual
+2,12209 ,250     //Life Insurance
+2,12909 ,375     //Kafra Card Box
+2,12910 ,375     //Giant Fly Wing Box
+2,12213 ,25000   //Neuralizer
+2,12214 ,250     //Convex Mirror
+2,7619  ,200     //Enriched Elunium
+2,7620  ,150     //Enriched Oridecon
+2,7621  ,100     //Token Of Siegfried
+2,12221 ,75      //Megaphone
+2,12210 ,200     //Bubble Gum
+2,7622  ,3500    //Hair Style Coupon
+2,6240  ,7500    //High Density Oridecon
+2,6241  ,10000   //High Density Elunium
+2,6046  ,2500    //Clothing Dye Coupon
+2,6047  ,2500    //Clothing Dye Coupon II
+
+
+// 3: Equipment
+3 ,28602 ,12500   //Demon Hunting Bible
+3 ,15123 ,12500   //Whikebain Suit
+3 ,21013 ,12500   //Hetairoi Sword
+3 ,21012 ,12500   //Some Wizard MagicSword
+3 ,2481  ,12500   //Rune Boots
+3 ,2597  ,12500   //Scarlet Poncho
+3 ,2116  ,1000    //Angelic Guard
+3 ,1485  ,750     //Battle Fork
+3 ,1925  ,1875    //Cello
+3 ,1980  ,1875    //Whip of Balance
+3 ,13038 ,3750    //Dagger of Hunter
+3 ,1290  ,3750    //Agent Katar
+3 ,1392  ,10000   //Ygnus Stale
+3 ,1393  ,10000   //End Sektura
+3 ,1659  ,7500    //Recovery Light
+3 ,13070 ,5000    //Scarletto Nail
+3 ,18109 ,3750    //Catapult
+3 ,15058 ,12500   //Rider's Suit
+3 ,2573  ,35000   //Archangel Wing
+
+
+// 4: Card
+4,4002  ,1250    //Fabre Card
+4,4003  ,3750    //Pupa Card
+4,4004  ,1250    //Drops Card
+4,4006  ,1250    //Lunatic Card
+4,4008  ,1250    //Picky Card
+4,4021  ,1250    //Rocker Card
+4,4022  ,1250    //Spore Card
+4,4027  ,1250    //Kukre Card
+4,4028  ,1250    //Tarou Card
+4,4032  ,1250    //Ambernite Card
+4,4034  ,1250    //Wormtail Card
+4,4035  ,5000    //Hydra Card
+4,4038  ,1250    //Zombie Card
+4,4043  ,1875    //Andre Card
+4,4049  ,1875    //Vadon Card
+4,4053  ,5000    //Vitata Card
+4,4058  ,5000    //Thara Frog Card
+4,4069  ,1875    //Drainliar Card
+4,4077  ,5000    //Phen Card
+4,4086  ,5000    //Soldier Skeleton Card
+4,4097  ,1875    //Matyr Card
+4,4102  ,5000    //Whisper Card
+4,4106  ,1875    //Mummy Card
+4,4133  ,5000    //Raydric Card
+4,4044  ,3750    //Smokie Card
+4,4052  ,1250    //Elder Willow Card
+4,4100  ,1875    //Sohee Card
+4,4042  ,1875    //Steel Chonchon Card
+4,4023  ,1250    //Baby Desertwolf Card
+4,4014  ,1250    //Roda Frog Card
+4,4107  ,1875    //Verit Card
+4,4091  ,1875    //Kobold Card
+4,4092  ,5000    //Skel Worker Card
+4,4105  ,7500    //Marc Card
+4,4064  ,7500    //Zerom Card
+4,4073  ,5000    //Pirate Skel Card
+4,4205  ,7500    //Mimic Card
+4,4062  ,5000    //Anacondaq Card
+4,4065  ,7500    //Kaho Card
+4,4030  ,5000    //Mandragora Card
+4,4085  ,5000    //Orc Skeleton Card
+4,4005  ,7500    //Santa Poring Card
+4,4130  ,7500    //Scorpion King Card
+4,4202  ,7500    //Cat Official Card
+4,4015  ,3750    //Condor Card
+4,4056  ,5000    //Dustiness Card
+4,4070  ,5000    //Eggyra Card
+4,4082  ,3750    //Desert Wolf Card
+4,4126  ,3750    //Minorous Card
+4,4031  ,3250    //Pecopeco Card
+4,4045  ,3250    //Horn Card
+4,4066  ,3250    //Orc Warrior Card
+4,4074  ,3250    //Bigfoot Card
+4,4160  ,4250    //Firelock Soldier Card
+4,4229  ,6250    //Clock Tower Manager Card
+4,4296  ,3250    //Cramp Card
+4,4161  ,3750    //Grand Peco Card
+4,4094  ,3750    //Archer Skeleton Card
+4,4109  ,3750    //Jakk Card
+4,4089  ,3750    //Swordfish Card
+4,4081  ,3750    //Hode Card
+4,4084  ,3250    //Marine Sphere Card
+4,4288  ,3750    //Carat Card
+4,4050  ,1875    //Male Thiefbug Card
+4,4252  ,1250    //Alligator Card
+4,4234  ,1850    //Anolian Card
+4,4327  ,6250    //Bloody Butterfly Card
+4,4117  ,1250    //Sidewinder Card
+4,4334  ,5000    //Noxious Card
+4,4255  ,3750    //Orc Lady Card
+4,4269  ,3750    //Incubus Card
+4,4218  ,7500    //Succubus Card
+4,4055  ,1850    //Marina Card
+4,4199  ,5000    //Merman Card
+4,4193  ,2000    //Lude Card
+4,4293  ,1875    //Cookie Card
+4,4258  ,1250    //Evil Nymph Card
+4,4112  ,7500    //Marduk Card
+4,4294  ,2000    //Quve Card
+4,4337  ,1250    //Porcellio Card
+4,4340  ,5000    //Teddy Bear Card
+4,4382  ,3250    //Yellow Novus Card
+4,4402  ,6250    //Aliot Card
+4,4378  ,6250    //Gold Acidus Card
+4,4371  ,5000    //Archdam Card
+4,4060  ,1875    //Goblin Card
+4,4157  ,1875    //Goblin Archer Card
+4,4310  ,1875    //Panzer Goblin Card
+4,4156  ,1875    //Goblin Steamrider Card
+4,4155  ,3750    //Goblin Leader Card
+4,4253  ,7500    //Alice Card
+4,4113  ,3750    //Marionette Card
+4,4268  ,2000    //Injustice Card
+
+// 5: Potion
+5,505   ,25      //Blue Potion
+5,13531 ,150     //Light Red Potion Box
+5,13532 ,250     //Light Orange Potion Box
+5,13533 ,400     //Light Yellow Potion Box
+5,13534 ,750     //Light White Potion Box
+5,13535 ,250     //Light Center Potion Box
+5,13536 ,500     //Light Awakening Potion Box
+5,13537 ,650     //Light Berserk Potion Box
+5,13857 ,400     //Popping Candy 5 Box
+5,13858 ,750     //Popping Candy 10 Box
+5,12350 ,200     //Angeling Potion
+5,12375 ,250     //Akaraje
+5,17126 ,2250    //ASPD Intensifying Potion Box
+5,14616 ,250     //STR Biscuit Stick
+5,14617 ,250     //VIT Biscuit Stick
+5,14618 ,250     //AGI Biscuit Stick
+5,14619 ,250     //INT Biscuit Stick
+5,14620 ,250     //DEX Biscuit Stick
+5,14621 ,250     //LUK Biscuit Stick
+5,12202 ,150     //Steamed Tongue
+5,12203 ,150     //Steamed Scorpion
+5,12204 ,150     //Dragon Breath Cocktail
+5,12205 ,150     //Hwergelmir's Tonic
+5,12206 ,150     //Cooked Nine Tail's Tails
+5,12207 ,150     //Stew Of Immortality
+5,12215 ,150     //LV10 Blessing Scroll
+5,12216 ,150     //LV10 Agil Scroll
+5,12217 ,150     //LV5 Aspersio Scroll
+5,12218 ,150     //LV5 Assumptio Scroll
+5,12219 ,150     //LV10 Wind Walker Scroll
+5,12220 ,150     //LV5 Adrenaline Scroll
+
+
+// 6: Rental
+6,17396 ,1250    //HFLMagesticGoatBox1day
+6,17397 ,7000    //HFLMagesticGoatBox7day
+6,17398 ,1250    //Half Spear1 Box1day
+6,17399 ,7000    //Half Spear1 Box7day
+6,17416 ,1250    //HF Morning Star1Box1day
+6,17417 ,7000    //HF Morning Star1Box7day
+6,17422 ,1250    //HF TwoHandedAxe1Box1day
+6,17423 ,7000    //HF TwoHandedAxe1Box7day
+6,16628 ,10000   //HF Brynhild box 7 Hari
+6,17311 ,2000    //HF Brynhild box 1 Hari
+6,17404 ,1250    //Half BF Staff2 Box 1day
+6,17405 ,7000    //Half BF Staff2 Box 7days
+6,17408 ,1250    //Half BF Dagger2 Box 1day
+6,17409 ,7000    //Half BF Dagger2 Box 7days
+6,17418 ,1250    //Half BF Bow1 Box 1day
+6,17419 ,7000    //Half BF Bow1 Box 7days
+6,17420 ,1250    //Half BF Katar2 Box 1day
+6,17421 ,7000    //Half BF Katar2 Box 7days
+6,16625 ,10000   //Half Asprika box 7days
+6,17308 ,2000    //Half Asprika box 1day
+6,17400 ,1250    //Half BF Book2 Box 1day
+6,17401 ,7000    //Half BF Book2 Box 7days
+6,17406 ,1250    //Half BF Knuckle1 Box 1day
+6,17407 ,7000    //Half BF Knuckle1 Box 7days
+6,17410 ,1250    //HF HuumaShuriken2Box1day
+6,17411 ,7000    //HF HuumaShuriken2Box7day
+6,17412 ,1250    //Half BF Sword1 Box 1day
+6,17413 ,7000    //Half BF Sword1 Box 7days
+6,17414 ,2000    //Half Mjolnir Box 1day
+6,17415 ,10000   //Half Mjolnir Box 7days
+6,17424 ,1250    //Half BF Rifle1 Box 1day
+6,17425 ,7000    //Half BF Rifle1 Box 7days
+6,17426 ,1250    //Half BF Shotgun1 Box 1day
+6,17427 ,7000    //Half BF Shotgun1 Box 7days
+6,17402 ,1250    //Half BF Staff4 Box 1day
+6,17403 ,7000    //Half BF Staff4 Box 7days
+6,12936 ,625     //Neo Muramasa Box
+6,13775 ,925     //Neo Unholy Touch Box
+6,13770 ,1000    //Neo Great Axe Box
+6,13767 ,1000    //Neo Skewer Box
+6,13772 ,625     //Neo Hardback Box
+6,13768 ,925     //Neo Survival Rod Box
+6,12944 ,925     //Neo Ballista Box
+6,12940 ,625     //Neo Kaiser Knuckle Box
+6,13956 ,925     //Neo Shealter Resistance Box
+6,13954 ,1000    //Neo Spiritual Tunic Box
+6,13955 ,1000    //Neo Recuperative Armor Box
+6,13958 ,1000    //Neo Refresh Shoes Box
+6,13957 ,1000    //Neo Sylphid Manteau Box
+6,12951 ,625     //Neo Elven Ears Box
+6,12953 ,625     //Neo Critical Ring Box
+6,13783 ,625     //Neo Bloody Iron Ball Box
+6,13784 ,925     //Neo Spiritual Ring Box
+6,13953 ,652     //Neo All In One Ring Box
+6,12947 ,652     //Neo Apple of Archer Box
+6,12948 ,652     //Neo Bunny Band Box
+6,12949 ,652     //Neo Sakkat Box
+6,13502 ,652     //Neo Drooping Kitty Box
+6,13778 ,925     //Neo Orc Hero Helm Box
+6,13779 ,625     //Neo Evil Wing Ears Box
+6,13782 ,925     //Neo Corsair Box
+6,12938 ,1000    //Neo Combat Knife Box
+6,13952 ,925     //Neo Lever Action Rifle Box
+6,12937 ,1000    //Neo Excalibur Box
+6,13766 ,1000    //Neo Nagan Box
+6,13773 ,625     //Neo Fire Blend Box
+6,14321 ,1000    //Holy Sabre Box
+6,14322 ,925     //Book Of Prayer Box
+6,14323 ,925     //Phenomena Whip Box
+6,14324 ,925     //Staff Of Darkness Box
+6,14325 ,925     //Monk Knuckle Box
+6,14326 ,925     //Mace Of Madness Box
+6,14327 ,925     //Spear Of Excellent Box
+6,14328 ,925     //Bow Of Evil Box
+6,14329 ,925     //Katar Of Speed Box
+6,14330 ,925     //Sharpshooter Revolver Box
+6,14426 ,925     //Neo Fortune Sword Box
+6,14427 ,925     //Neo House Auger Box
+6,14428 ,925     //Neo Kamaitachi Box
+6,14429 ,1000    //Neo Berserk Guitar Box
+6,14430 ,1000    //Neo Doom Slayer Box
+6,14431 ,1000    //Neo HuumaBlazeShurikenBox
+6,14432 ,1250    //Neo Odin's Blessing Box
+6,14433 ,1500    //Neo Ring Of Flame Lord Box
+6,14434 ,1500    //Neo Ring Of Resonance Box
+6,14435 ,625     //Neo Boys Cap Box
+6,14436 ,625     //Neo Ulle's Cap Box
+6,14437 ,925     //Neo Sphinx Helm Box
+6,14242 ,925     //Beholder Ring Box
+6,14243 ,925     //Hallow Ring Box
+6,14244 ,925     //Clamorous Ring Box
+6,14245 ,925     //Chemical Ring Box
+6,14246 ,925     //Insecticide Ring Box
+6,14247 ,925     //Fisher Ring Box
+6,14248 ,925     //Decussate Ring Box
+6,14249 ,925     //Bloody Ring Box
+6,14250 ,925     //Satanic Ring Box
+6,14251 ,925     //Dragoon Ring Box
+6,14252 ,1500    //Beholder Ring Box II
+6,14253 ,1500    //Hallow Ring Box II
+6,14254 ,1500    //Clamorous Ring Box II
+6,14255 ,1500    //Chemical Ring Box II
+6,14256 ,1500    //Insecticide Ring Box II
+6,14257 ,1500    //Fisher Ring Box II
+6,14258 ,1500    //Decussate Ring Box II
+6,14259 ,1500    //Bloody Ring Box II
+6,14260 ,1500    //Satanic Ring Box II
+6,14261 ,1500    //Dragoon Ring Box II
+6,13771 ,1000    //Neo Bloody Roar Box
+6,13654 ,925     //Neo Right Epsilon Box
+6,13656 ,625     //Neo Sage's Diary Box
+6,13653 ,925     //Neo Mighty Staff Box
+6,13663 ,625     //Neo Steel Flower Box
+6,13671 ,925     //Neo Safety Ring Box
+6,13672 ,925     //Neo Vesper Core 01 Box
+6,13673 ,925     //Neo Vesper Core 02 Box
+6,13674 ,925     //Neo Vesper Core 03 Box
+6,13675 ,925     //Neo Vesper Core 04 Box
+6,13650 ,925     //Neo Counter Dagger Box
+6,13657 ,925     //Neo Asura Box
+6,16638 ,625     //Life Ribbon Box
+6,16639 ,1000    //Life Ribbon Box2
+6,16374 ,625     //Bubble Gum In Mouth Box
+6,16389 ,1000    //Bubble Gum In Mouth Box2
+6,16372 ,625     //Four Leaf Clover In Mouth Box
+6,16385 ,1000    //Four Leaf Clover In Mouth Box2
+6,16682 ,2500    //Boarding Halter Box
+
+
+// 7: Accessory
+7,2936  ,12500   //Recovery Ring
+7,2607  ,1875    //Clip
+7,2617  ,1875    //Celebrant's Mitten
+7,2601  ,1875    //Ring
+7,2602  ,1875    //Earring
+7,2603  ,1875    //Necklace
+7,2604  ,1875    //Glove
+7,2605  ,1875    //Brooch
+7,2618  ,1875    //Matyr's Leash
+7,10003 ,250     //Transparent Head Protector
+7,10007 ,250     //Silk Ribbon
+7,10009 ,250     //Wild Flower
+7,10010 ,250     //Battered Pot
+7,10011 ,250     //Stellar Hairpin
+7,10012 ,250     //Tiny Egg Shell
+7,10015 ,250     //Green Lace
+7,10017 ,250     //Bark Shorts
+7,10020 ,1250    //Sword of grave keeper
+7,2619  ,3750    //Bow Thimble
+7,2625  ,5000    //Brooch
+7,2622  ,5000    //Earring
+7,2624  ,5000    //Glove
+7,2623  ,5000    //Necklace
+7,2621  ,5000    //Ring
+7,2626  ,5000    //Rosary
+7,10004 ,500     //Pacifier
+7,10001 ,1500    //Skull Helm
+7,2888  ,5000    //School Bag
+7,2751  ,5000    //Academy Badge
+7,2652  ,3750    //Goddess of Fortune's Cursed Bro
