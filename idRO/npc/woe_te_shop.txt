@@ -1,0 +1,9 @@
+//===== rAthena Script =======================================
+//= WoE:TE Potion Shop
+//===== Description: =========================================
+//= WoE:TE Potion Shop, Ripped from idRO.
+//===== Changelogs: ==========================================
+//= 1.0 Initial release. [Cydh]
+//============================================================
+
+te_prt_gld,114,153,3	shop	TE Potion Merchant	4_M_TELEPORTER,11557:-1,11558:-1

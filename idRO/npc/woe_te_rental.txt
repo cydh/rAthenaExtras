@@ -1,0 +1,201 @@
+//===== rAthena Script =======================================
+//= WoE:TE Rental Items
+//===== Description: =========================================
+//= WoE:TE Rental Items, Ripped from idRO.
+//===== Changelogs: ==========================================
+//= 1.0 Initial release. [Cydh]
+//============================================================
+
+// Warps ===========================
+prt_gld,120,153,0	warp	prtgld2teprtgld	1,1,te_prt_gld,120,149
+te_prt_gld,120,153,0	warp	teprtgld2prtgld	1,1,prt_gld,120,149
+
+// Rental NPC ======================
+te_prt_gld,162,141,3	script	Rental Items Manager	4_F_HUWOMAN,{
+	function AddGroup;
+	function AddItem;
+
+	// Class check!
+	.@eac = eaclass();
+	if (.@eac&EAJL_THIRD || .@eac == EAJ_SUPER_NOVICE_E || .@eac == EAJ_SUPER_BABY_E || .@eac == EAJ_REBELLION || .@eac == EAJ_KAGEROUOBORO) {
+		mes .name$;
+		mes "Maaf tapi jobmu tidak memungkinkan untuk ikut serta  dalam Siege War TE.";
+		mes "Sepertinya aku tidak bisa menawarkan barang apapun untukmu.";
+		close;
+	}
+
+	mes .name$;
+	mes "^3399FFKami menyediakan berbagai macam gear yang bisa kamu gunakandi Gloria dan Kafragarten berdasarkan peraturan Siege War TE.^000000";
+	next;
+	mes .name$;
+	mes "^3399FFKami menyediakan pinjaman durasi 1 hari secara gratis.^000000";
+	mes "Namun barang yang disediakan ^3399FFtidak bisa digunakan di luar wilayah Siege War TE.^000000";
+	next;
+	mes .name$;
+	mes "^3399FFKamu harus mencapai level ".MinLevel" keatas untuk bisa meminjam.^000000";
+	mes "Silahkan pilih equip yang diinginkan.";
+	next;
+	goto(OnShowMenu);
+	end;
+
+	OnShowMenu:
+		.@menu$ = "Lihat equip sewaan";
+		for (.@i = 0; .@i < .EqGroup; .@i++) {
+			.@menu$ = .@menu$+":"+.EqGroup$[.@i];
+		}
+		.@menu$ = .@menu$+":Leave";
+		.@sel = select(.@menu$);
+		if (.@sel == 1) {
+			next;
+			goto(OnViewEq);
+		}
+		else if (.@sel-2 < .EqGroup) {
+			next;
+			callsub(OnEqList,.@sel-2);
+		}
+		end;
+
+	OnViewEq:
+		mes .name$;
+		mes "Berikut ini daftar equip sewaan beserta dengan penjelasannya.";
+		close;
+
+	OnEqList:
+		.@id = getarg(0);
+		.@name$ = .EqGroup$[.@id];
+		.@msg$ = .EqGroupMsg$[.@id];
+		.@count = .EqGroupCnt[.@id];
+		mes .name$;
+		mes "Kami memiliki "+.@msg$+" yang siap untukmu.";
+		mes "Silahkan pilih barang yang kamu inginkan.";
+		next;
+		.@menu$ = "";
+		for (.@i = 0; .@i < .@count; .@i++) {
+			.@itemid = getd(".EqGroup_"+.@id+"_ID["+.@i+"]");
+			if (countitem(.@itemid) > 0)
+				.@mes$ = "^3399FF"+getitemname(.@itemid)+" - Checked out^000000";
+			else
+				.@mes$ = getitemname(.@itemid);
+			.@menu$ = .@menu$+""+.@mes$+":";
+		}
+		.@menu$ = .@menu$+"Lihat barang lainnya";
+		.@sel = select(.@menu$);
+		if (.@sel-1 == .@i) {
+			next;
+			goto(OnShowMenu);
+		}
+		else {
+			next;
+			callsub(OnRental,.@id,.@sel-1);
+		}
+		end;
+
+	OnHasItem:
+		.@itemid = getarg(0);
+		if (countitem(.@itemid) > 0)
+			return 1;
+		return "";
+
+	OnRental:
+		.@id = getarg(0);
+		.@idx = getarg(1);
+		.@itemid = getd(".EqGroup_"+.@id+"_ID["+.@idx+"]");
+		mes .name$;
+		if (BaseLevel < .MinLevel) {
+			mes "Kamu harus memliki level "+.MinLevel+" keatas."; // Custom
+		}
+		else if (countitem(.@itemid) > 0) {
+			mes "Kamu sudah memiliki "+getitemname(.@itemid)+".";
+		}
+		else if (checkweight(.@itemid,1) != 1) {
+			mes "Kamu akan kelebihan berat."; // Custom
+		}
+		else {
+			.@duration = getd(".EqGroup_"+.@id+"_Dur["+.@idx+"]");
+			mes "Ini dia "+getitemname(.@itemid)+".";
+			mes "^3399FFBarang ini hanya berdurasi "+(.@duration/60)+" jam^000000 dan setelah itu barang akan hilang.";
+			rentitem .@itemid,.@duration*60;
+		}
+		mes "Apakah ada barang lain yang kamu butuhkan?";
+		next;
+		goto(OnShowMenu);
+		end;
+
+	//AddGroup(Name,Message);
+	function AddGroup {
+		.EqGroup$[.EqGroup] = ""+getarg(0)+"";
+		.EqGroupMsg$[.EqGroup] = ""+getarg(1)+"";
+		.EqGroup++;
+		return;
+	}
+
+	//AddItem(GroupID,ItemID,DurationInMinute);
+	function AddItem {
+		.@id = getarg(0);
+		setd(".EqGroup_"+.@id+"_ID["+.EqGroupCnt[.@id]+"]",getarg(1));
+		setd(".EqGroup_"+.@id+"_Dur["+.EqGroupCnt[.@id]+"]",getarg(2));
+		.EqGroupCnt[.@id] += 1;
+		return;
+	}
+
+	OnInit:
+		.name$ = "[Rental Items Manager]";
+		.MinLevel = 40; // Minimum level to able rent an item
+
+		// GroupID: 0
+		AddGroup("[Shield][Armor][Garment]","perisai dan armor");
+		AddItem(0,2178,1440); // 2178,TE_Woe_Buckler
+		AddItem(0,2179,1440); // 2179,TE_Woe_Shield
+		AddItem(0,2180,1440); // 2180,TE_Woe_Magic_Guard
+		AddItem(0,15062,1440); // 15062,TE_Woe_Coat
+		AddItem(0,15063,1440); // 15063,TE_Woe_Chain_Mail
+		AddItem(0,15064,1440); // 15064,TE_Woe_Mage_Coat
+		AddItem(0,20702,1440); // 20702,TE_Woe_Muffler
+		AddItem(0,20703,1440); // 20703,TE_Woe_Manteau
+		AddItem(0,20704,1440); // 20704,TE_Woe_Magic_Manteau
+
+		// GroupID: 1
+		AddGroup("[Helmet][Accessory][Shoes]","helm, aksesoris, dan sepatu");
+		AddItem(1,2496,1440); // 2496,TE_Woe_Shoes
+		AddItem(1,2497,1440); // 2497,TE_Woe_Boots
+		AddItem(1,2498,1440); // 2498,TE_Woe_Magic_Sandal
+		AddItem(1,2944,1440); // 2944,TE_Ring_Of_Protection
+		AddItem(1,2945,1440); // 2945,TE_Ring_Of_Rage
+		AddItem(1,2946,1440); // 2946,TE_Ring_Of_Defiance
+		AddItem(1,18732,1440); // 18732,TE_Woe_Cap
+		AddItem(1,18733,1440); // 18733,TE_Woe_Bone_Helm
+		AddItem(1,18734,1440); // 18734,TE_Woe_Magic_Eyes
+
+		// GroupID: 2
+		AddGroup("[Sword][Spear][Axe][Katar]","pedang, tombak, kapak, dan katar");
+		AddItem(2,1299,1440); // 1299,TE_Woe_Katar
+		AddItem(2,1399,1440); // 1399,TE_Woe_Two_Handed_Axe
+		AddItem(2,1495,1440); // 1495,TE_Woe_Lance
+		AddItem(2,13317,1440); // 13317,TE_Woe_Huuma
+		AddItem(2,21006,1440); // 21006,TE_Woe_Two_Hand_Sword
+		AddItem(2,1319,1440); // 1319,TE_Woe_Axe
+		AddItem(2,1437,1440); // 1437,TE_Woe_Pike
+		AddItem(2,13083,1440); // 13083,TE_Woe_Knife
+		AddItem(2,13439,1440); // 13439,TE_Woe_Sword
+
+		// GroupID: 3
+		AddGroup("[Mace][Staff][Fist][Book]","tongkat, gada, buku, dan fist");
+		AddItem(3,2019,1440); // 2019,TE_Woe_Two_Hand_Staff
+		AddItem(3,1591,1440); // 1591,TE_Woe_Book
+		AddItem(3,1667,1440); // 1667,TE_Woe_Staff
+		AddItem(3,1834,1440); // 1834,TE_Woe_Fist
+		AddItem(3,16025,1440); // 16025,TE_Woe_Mace
+
+		// GroupID: 4
+		AddGroup("[Bow][Gun][Musical Instrument][Whip]","busur, senjata api, alat musik, dan cambuk");
+		AddItem(4,18118,1440); // 18118,TE_Woe_Bow
+		AddItem(4,13117,1440); // 13117,TE_Woe_Pistol
+		AddItem(4,13184,1440); // 13184,TE_Woe_Rifle
+		AddItem(4,13185,1440); // 13185,TE_Woe_Gatling
+		AddItem(4,13186,1440); // 13186,TE_Woe_Shotgun
+		AddItem(4,13187,1440); // 13187,TE_Woe_Grenade
+		AddItem(4,1932,1440); // 1932,TE_Woe_Guitar
+		AddItem(4,1987,1440); // 1987,TE_Woe_Rope
+
+		end;
+}
