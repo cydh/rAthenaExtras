@@ -13,6 +13,8 @@
 //= - Listed all costumes & stones same like idRO Klasik
 //===== Changelogs: ==========================================
 //= 1.0 First Version. [Cydh]
+//= 1.1 Changed delitem to delequip for equipped costume [Cydh]
+//=     Moved enchant success rate to variable
 //============================================================
 -	script	cCostumeEnchant#Exchanger	-1,{
 	.@loc$ = charat(strnpcinfo(2),3);
@@ -143,7 +145,7 @@
 		setd(.@this$+"stonebox_id",.@stone_id);
 		setd(.@this$+"stonebox_amount",.@stone_amount);
 		setd(.@this$+"stonebox_name$",.@stone_box$);
-		.@costumemenu$ = ""; for (.@i = 0; .@i < getarraysize(.@costumes$); .@i+=2) { if (.@i) { .@costumemenu$ = .@costumemenu$+":"; } .@costumemenu$ = .@costumemenu$+""+.@costumes$[.@i+1]; setd(.@this$+"costumes$["+(.@i)+"]",.@costumes$[.@i]); setd(.@this$+"costumes$["+(.@i+1)+"]",.@costumes$[(.@i+1)]); }
+		.@costumemenu$ = ""; for (.@i = 0; .@i < getarraysize(.@costumes$); .@i+=2) { .@costumemenu$ = .@costumemenu$+""+.@costumes$[.@i+1]+":"; setd(.@this$+"costumes$["+(.@i)+"]",.@costumes$[.@i]); setd(.@this$+"costumes$["+(.@i+1)+"]",.@costumes$[(.@i+1)]); }
 		setd(.@this$+"costumemenu$",.@costumemenu$);
 		end;
 }
@@ -206,9 +208,7 @@
 	.@grouparr$ = .@this$+"stones_"+.@groupID$+"$";
 	.@stonemenu$ = "";
 	for (.@i = 0; .@i < getarraysize(getd(""+.@grouparr$+"")); .@i+=2) {
-		if (.@i)
-			.@stonemenu$ = .@stonemenu$+":";
-		.@stonemenu$ = .@stonemenu$+"[^0000CC"+countitem(atoi(getd(""+.@grouparr$+"["+(.@i)+"]")))+"^000000] "+getd(""+.@grouparr$+"["+(.@i+1)+"]")+"";
+		.@stonemenu$ = .@stonemenu$+"[^0000CC"+countitem(atoi(getd(""+.@grouparr$+"["+(.@i)+"]")))+"^000000] "+getd(""+.@grouparr$+"["+(.@i+1)+"]")+":";
 	}
 	.@sel = select(.@stonemenu$) - 1;
 	.@i = .@sel * 2;
@@ -227,10 +227,8 @@
 		mes "dienchant menggunakan "+.@stoneName$+"";
 		.@costumemenu$ = "";
 		for (.@i = 0; .@i < getarraysize(getd(.@cosarr$)); .@i+=2) {
-			if (.@i)
-				.@costumemenu$ = .@costumemenu$+":";
 			.@temp = atoi(getd(.@cosarr$+"["+(.@i)+"]"));
-			.@costumemenu$ = .@costumemenu$+""+getd(.@cosarr$+"["+(.@i+1)+"]")+" ("+(countitem(.@temp)-isequipped(.@temp))+")";
+			.@costumemenu$ = .@costumemenu$+""+getd(.@cosarr$+"["+(.@i+1)+"]")+" ("+(countitem(.@temp)-isequipped(.@temp))+"):";
 		}
 		.@sel = select(.@costumemenu$) - 1;
 		.@i = .@sel * 2;
@@ -249,22 +247,11 @@
 		// Check equipped costume. Additional feature by me of course, Cydh!
 		.@eqiLoc = getd(.@this$+"eqiLoc");
 		.@costumeID = getequipid(.@eqiLoc);
-		if (.@costumeID == -1 || countitem(.@stoneID) < 1 || countitem(.@costumeID) != 1) {
+		if (.@costumeID == -1 || countitem(.@stoneID) < 1) {
 			next;
 			mes "["+.@npcname$+"]";
 			mes "Kamu harus mengenakan costume "+.@locname$+"";
 			mes "dan bawalah stone yang diperlukan";
-			next;
-			mes "["+.@npcname$+"]";
-			mes "^0000CCSilahkan simpan costum yang sama";
-			mes "yang ada di inventory ke tempat lain.^000000";
-			close;
-		}
-		if (countitem(.@costumeID) != 1) {
-			next;
-			mes "["+.@npcname$+"]";
-			mes "^0000CCSilahkan simpan costum yang sama";
-			mes "yang ada di inventory ke tempat lain.^000000";
 			close;
 		}
 		.@n = getarraysize(getd(.@cosarr$))/2;
@@ -315,23 +302,26 @@
 	next;
 	specialeffect2 EF_REPAIRWEAPON;
 	progressbar "ffffff",3;
-	if (countitem(.@costumeID) > 0 && countitem(.@stoneID) > 0) {
+	if (countitem(.@costumeID) > 0 && countitem(.@stoneID) > 0 && (.@slot$ == "" || getequipid(.@eqiLoc) != -1)) {
 		delitem .@stoneID,1;
-		if (rand(1,100) < 51) {
-			specialeffect2 EF_PHARMACY_FAIL;
+		if (rand(100) < getd(.@this$+"rate")) {
+			if (.@slot$ == "") {
+				.@slot[3] = .@stoneID;
+				delitem .@costumeID,1;
+			}
+			else {
+				.@slot[atoi(.@slot$)] = .@stoneID;
+				delequip .@eqiLoc;
+			}
+			specialeffect2 EF_PHARMACY_OK;
 			mes "["+.@npcname$+"]";
-			mes "Gagal melakukan enchant";
+			mes "Enchant berhasil!";
+			getitem2 .@costumeID,1,1,.@refine,0,.@slot[0],.@slot[1],.@slot[2],.@slot[3];
 			close;
 		}
-		delitem .@costumeID,1;
-		specialeffect2 EF_PHARMACY_OK;
+		specialeffect2 EF_PHARMACY_FAIL;
 		mes "["+.@npcname$+"]";
-		mes "Enchant berhasil!";
-		if (.@slot$ == "")
-			.@slot[3] = .@stoneID;
-		else
-			.@slot[atoi(.@slot$)] = .@stoneID;
-		getitem2 .@costumeID,1,1,.@refine,0,.@slot[0],.@slot[1],.@slot[2],.@slot[3];
+		mes "Gagal melakukan enchant";
 	}
 	close;
 
@@ -359,6 +349,7 @@
 		if (.@loc$ == "0") {
 			.@locname$ = "Upper";
 			.@eqiLoc = EQI_COSTUME_HEAD_TOP;
+			.@rate = 50; // Rate 1-100
 			// Costumes
 			setarray .@costumes$[0],"5376","Costume Flywing Evil Wing"
 								,"20079","C Flapping Golden Angelwing"
@@ -391,6 +382,7 @@
 		else if (.@loc$ == "1") {
 			.@locname$ = "Middle";
 			.@eqiLoc = EQI_COSTUME_HEAD_MID;
+			.@rate = 50; // Rate 1-100
 			// Costumes
 			setarray .@costumes$[0],"5376","Costume Black Cat"
 								,"19611","Costume Peco Ears"
@@ -423,6 +415,7 @@
 		else if (.@loc$ == "2") {
 			.@locname$ = "Lower";
 			.@eqiLoc = EQI_COSTUME_HEAD_LOW;
+			.@rate = 50; // Rate 1-100
 			// Costumes
 			setarray .@costumes$[0],"20285","C Blossom Fluttering"
 								,"20132","C Subject Aura"
@@ -454,6 +447,7 @@
 		else if (.@loc$ == "3") {
 			.@locname$ = "Garment";
 			.@eqiLoc = EQI_COSTUME_GARMENT;
+			.@rate = 50; // Rate 1-100
 			// Costumes
 			setarray .@costumes$[0],"20761","C Wing of Happiness"
 								,"20762","C Great Devil Wing"
@@ -488,7 +482,8 @@
 		.@this$ = ".data"+.@loc$+"";
 		setd(.@this$+"locname$",.@locname$);
 		setd(.@this$+"eqiLoc",.@eqiLoc);
-		.@groupmenu$ = ""; for (.@i = 0; .@i < getarraysize(.@group$); .@i+=2) { if (.@i) { .@groupmenu$ = .@groupmenu$+":"; } .@groupmenu$ = .@groupmenu$+""+.@group$[.@i+1]+""; setd(.@this$+"group$["+(.@i)+"]",.@group$[.@i]); setd(.@this$+"group$["+(.@i+1)+"]",.@group$[.@i+1]); }
+		setd(.@this$+"rate",.@rate);
+		.@groupmenu$ = ""; for (.@i = 0; .@i < getarraysize(.@group$); .@i+=2) { .@groupmenu$ = .@groupmenu$+""+.@group$[.@i+1]+":"; setd(.@this$+"group$["+(.@i)+"]",.@group$[.@i]); setd(.@this$+"group$["+(.@i+1)+"]",.@group$[.@i+1]); }
 		setd(.@this$+"groupmenu$",.@groupmenu$);
 		for (.@i = 0; .@i < getarraysize(.@costumes$); .@i+=2) { setd(.@this$+"costumes$["+(.@i)+"]",.@costumes$[.@i]); setd(.@this$+"costumes$["+(.@i+1)+"]",.@costumes$[.@i+1]); }
 		for (.@i = 0; .@i < getarraysize(.@stone_str$); .@i+=2) { setd(.@this$+"stones_str$["+(.@i)+"]",.@stone_str$[.@i]); setd(.@this$+"stones_str$["+(.@i+1)+"]",.@stone_str$[.@i+1]); }
@@ -542,8 +537,7 @@ prontera,140,328,3	script	Enchant Stone Exchanger	4_M_BARD,{
 	.@stonemenu$ = "";
 	.@stonearr$ = ".stone_"+.@stoneLocID$+"_"+.@stoneTypeID$+"$";
 	for (.@i = 0; .@i < getarraysize(getd(.@stonearr$)); .@i+=2) {
-		if (.@i) .@stonemenu$ = .@stonemenu$+":";
-		.@stonemenu$ = .@stonemenu$+""+getd(.@stonearr$+"["+(.@i+1)+"]")+" ("+countitem(atoi(getd(.@stonearr$+"["+(.@i)+"]")))+")");
+		.@stonemenu$ = .@stonemenu$+""+getd(.@stonearr$+"["+(.@i+1)+"]")+" ("+countitem(atoi(getd(.@stonearr$+"["+(.@i)+"]")))+"):");
 	}
 	.@stoneSel = select(.@stonemenu$)-1;
 	.@stoneSelID$ = getd(.@stonearr$+"["+(.@stoneSel*2)+"]");
@@ -586,8 +580,7 @@ prontera,140,328,3	script	Enchant Stone Exchanger	4_M_BARD,{
 		// Creating selections
 		.locmenu$ = "";
 		for (.@i = 0; .@i < getarraysize(.stoneLoc$); .@i+=2) {
-			if (.@i) { .locmenu$ = .locmenu$+":"; }
-			.locmenu$ = .locmenu$+""+.stoneLoc$[.@i+1];
+			.locmenu$ = .locmenu$+""+.stoneLoc$[.@i+1]+":";
 		}
 		/**
 		* Stone Boxes
@@ -618,8 +611,7 @@ prontera,140,328,3	script	Enchant Stone Exchanger	4_M_BARD,{
 		// Type selections
 		.upper_menu$ = "";
 		for (.@i = 0; .@i < getarraysize(.stoneType_upper$); .@i+=2) {
-			if (.@i) { .upper_menu$ = .upper_menu$+":"; }
-			.upper_menu$ = .upper_menu$+""+.stoneType_upper$[.@i+1];
+			.upper_menu$ = .upper_menu$+""+.stoneType_upper$[.@i+1]+":";
 		}
 		.middle_menu$ = .upper_menu$;
 		.lower_menu$ = .upper_menu$;
@@ -628,8 +620,7 @@ prontera,140,328,3	script	Enchant Stone Exchanger	4_M_BARD,{
 		setarray .stoneType_garment$[.@size],"aspd","ASPD Stone";
 		.garment_menu$ = "";
 		for (.@i = 0; .@i < getarraysize(.stoneType_garment$); .@i+=2) {
-			if (.@i) { .garment_menu$ = .garment_menu$+":"; }
-			.garment_menu$ = .garment_menu$+""+.stoneType_garment$[.@i+1];
+			.garment_menu$ = .garment_menu$+""+.stoneType_garment$[.@i+1]+":";
 		}
 
 		// Upper Stones
