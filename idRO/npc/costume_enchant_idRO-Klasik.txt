@@ -12,9 +12,10 @@
 //= - Translated dialog to English
 //= - Some items are not present in rAthena, I won't provide
 //===== Changelogs: ==========================================
-//= 1.0 First English Version. [Cydh]
-//= 1.1 Changed delitem to delequip for equipped costume [Cydh]
-//=     Moved enchant success rate to variable
+//= 1.0.0 First English Version. [Cydh]
+//= 1.0.1 Changed delitem to delequip for equipped costume [Cydh]
+//=       Moved enchant success rate to variable
+//= 1.0.2 Removed `pcblockskill` command. [Cydh]
 //============================================================
 -	script	cCostumeEnchant#Exchanger	-1,{
 	.@loc$ = charat(strnpcinfo(2),3);
@@ -218,7 +219,6 @@
 	setarray .@slot[0],0,0,0,0;
 	.@refine = 0;
 	disable_items;
-	pcblockskill 0,true;
 	if (.@slot$ == "") {
 		// Costume selection
 		next;
