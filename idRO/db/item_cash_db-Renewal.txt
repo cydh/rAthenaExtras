@@ -1,0 +1,253 @@
+//============================================================
+// Cash Shop Database
+//== Descriptions ============================================
+// Cash shop for Renewal servers used by Midgard, Valhalla,
+// and Asgard
+//============================================================
+
+// 0: New (Eventually)
+
+
+// 1: Headgear
+1,5495,100000		// Power of Thor
+1,5362,35000		// Ninja Scroll
+1,5567,35000		// Bright Fury [1]
+1,18661,35000		// Trident Helmet [1]
+1,5211,65000		// Dress Hat [1]
+1,5401,35000		// Black Frame Glasses
+1,18613,35000		// Black Musang Hat [1]
+1,18642,35000		// Scissorhand
+1,5314,100000		// Hockey Mask
+1,5516,35000		// Hawk Eyes
+1,18542,35000		// Benevolent Guardian [1]
+1,5315,35000		// Observer
+1,18597,100000		// Mercury Helm [1]
+1,5138,35000		// Magic Eyes
+1,18536,35000		// Foxtail
+1,5305,35000		// Pirate Dagger
+1,5490,100000		// Anubis Helm
+1,18697,35000		// Syringe In Mouth
+1,5464,35000		// White Lady Doll
+1,5283,35000		// Chick Hat
+1,5389,35000		// Angel Spirit
+1,18550,35000		// Asgard Blessing [1]
+1,5765,35000		// Black Tail Ribbon [1]
+1,18754,35000		// Blood Sucker
+1,5360,100000		// Whikebain Ears
+1,5467,35000		// Helm Of Dragoon
+1,5293,35000		// Ramen Hat
+1,5471,35000		// Reginleif's Wing
+1,5462,35000		// Spiked Scarf
+1,2855,35000		// Whikebain's Black Tail
+1,5766,35000		// Amistr Cap
+1,5359,35000		// Master's Hat [1]
+1,18574,35000		// Helm Of Death [1]
+1,5210,100000		// Flapping Angel Wing
+1,5382,100000		// Bell Ribbon [1]
+1,5286,35000		// Pecopeco Hairband
+1,5285,35000		// Vane Hairpin [1]
+1,5148,35000		// Guildmaster's Cap
+1,5253,35000		// Lif Doll Hat [1]
+1,5151,35000		// Note Headphone [1]
+1,5181,35000		// Helm of Darkness [1]
+1,5470,35000		// Darkness Eyes
+1,18616,35000		// Long Tongue
+1,18698,35000		// Cheesy Snack In Mouth
+1,5548,35000		// Scarlet Rose
+1,5431,100000		// Cuckoo Hat
+1,5380,100000		// Fish Head Hat
+1,18681,35000		// Puppy Ears Hat [1]
+1,18692,35000		// Mike Hat [1]
+1,18695,35000		// Phoenix Crown [1]
+1,18618,35000		// Airplane Hat [1]
+1,5526,35000		// Lady Tanee Hat
+1,5140,35000		// Charming Ribbon [1]
+1,5292,35000		// Dragon Skull
+1,18679,35000		// Abacus In Mouth
+1,5775,35000		// Choco Donut in Mouth
+1,18620,100000		// Heart Eye Patch
+1,5284,35000		// Water Lily Crown [1]
+1,5491,35000		// Outlaw's Hat [1]
+1,5289,35000		// Vanilmirth Hat
+1,5198,35000		// Party Rabbit Hat
+1,5142,35000		// Crescent Helm
+1,5584,35000		// Majestic Devil Horn
+1,5146,35000		// Elephant Hat
+1,5463,35000		// Rainbow Scarf
+1,5767,35000		// Samurai Mask
+1,5288,35000		// Red Glasses
+
+// 2: Consumable
+2,32193,3500		// Bounty Permit
+2,12581,2000		// Universal Catalog Gold
+2,32007,10000		// Permit Box
+2,16770,20000		// Silvervine Box10
+2,12902,10000		// Bubble Gum Box
+2,12922,5000		// Token of Siegfried Box
+2,12900,10000		// Battle Manual Box
+2,12920,5000		// Enriched Elunium Box
+2,12921,5000		// Enriched Oridecon Box
+2,12909,2000		// Kafra Card Box
+2,12901,10000		// Insurance Package
+2,12919,2000		// Megaphone Box
+2,13710,10000		// Gym Membership Card Box
+2,17106,75000		// Gym Membership Card Box10
+2,12214,2000		// Convex Mirror
+2,13905,25000		// Hardcore Set Box
+2,17079,10000		// Indonesian Box 2
+2,13814,7500		// Healing Box
+2,7622,10000		// Hair Style Coupon
+2,6046,50000		// Clothing Dye Coupon
+2,6047,50000		// Clothing Dye Coupon II
+2,17076,1000		// Empty Bottle Box500
+2,7825,10000		// Heroic Stone
+
+// 3: Equipment
+
+
+// 4: Card
+4,4002,4000			// Fabre Card
+4,4003,10000		// Pupa Card
+4,4004,4000			// Drops Card
+4,4006,4000			// Lunatic Card
+4,4008,4000			// Picky Card
+4,4021,4000			// Rocker Card
+4,4022,4000			// Spore Card
+4,4027,4000			// Kukre Card
+4,4028,4000			// Tarou Card
+4,4032,4000			// Ambernite Card
+4,4034,4000			// Wormtail Card
+4,4035,20000		// Hydra Card
+4,4038,4000			// Zombie Card
+4,4043,7000			// Andre Card
+4,4049,7000			// Vadon Card
+4,4053,20000		// Vitata Card
+4,4058,20000		// Thara Frog Card
+4,4069,7000			// Drainliar Card
+4,4077,20000		// Phen Card
+4,4086,20000		// Soldier Skeleton Card
+4,4097,7000			// Matyr Card
+4,4102,20000		// Whisper Card
+4,4106,7000			// Mummy Card
+4,4133,20000		// Raydric Card
+4,4044,10000		// Smokie Card
+4,4052,4000			// Elder Willow Card
+4,4100,7000			// Sohee Card
+4,4042,7000			// Steel Chonchon Card
+4,4023,4000			// Baby Desertwolf Card
+4,4014,4000			// Roda Frog Card
+4,4107,7000			// Verit Card
+4,4091,7000			// Kobold Card
+4,4092,20000		// Skel Worker Card
+4,4105,25000		// Marc Card
+4,4064,25000		// Zerom Card
+4,4073,20000		// Pirate Skel Card
+4,4205,25000		// Mimic Card
+4,4062,20000		// Anacondaq Card
+4,4065,25000		// Kaho Card
+4,4030,20000		// Mandragora Card
+4,4085,20000		// Orc Skeleton Card
+4,4005,25000		// Santa Poring Card
+4,4130,25000		// Scorpion King Card
+4,4202,25000		// Cat Official Card
+4,4015,10000		// Condor Card
+4,4056,20000		// Dustiness Card
+4,4070,20000		// Eggyra Card
+4,4082,10000		// Desert Wolf Card
+4,4126,10000		// Minorous Card
+4,4031,10000		// Pecopeco Card
+4,4045,10000		// Horn Card
+4,4066,10000		// Orc Warrior Card
+4,4074,10000		// Bigfoot Card
+4,4160,15000		// Firelock Soldier Card
+4,4229,22000		// Clock Tower Manager Card
+4,4296,10000		// Cramp Card
+4,4161,10000		// Grand Peco Card
+4,4094,10000		// Archer Skeleton Card
+4,4109,10000		// Jakk Card
+4,4089,10000		// Swordfish Card
+4,4081,10000		// Hode Card
+4,4084,10000		// Marine Sphere Card
+4,4288,10000		// Carat Card
+4,4050,7000			// Male Thiefbug Card
+4,4252,4000			// Alligator Card
+4,4234,7000			// Anolian Card
+4,4327,22000		// Bloody Butterfly Card
+4,4117,4000			// Sidewinder Card
+4,4334,20000		// Noxious Card
+4,4255,10000		// Orc Lady Card
+4,4269,10000		// Incubus Card
+4,4218,25000		// Succubus Card
+4,4055,7000			// Marina Card
+4,4199,20000		// Merman Card
+4,4193,2000			// Lude Card
+4,4293,7000			// Cookie Card
+4,4258,4000			// Evil Nymph Card
+4,4112,25000		// Marduk Card
+4,4294,2000			// Quve Card
+4,4337,4000			// Porcellio Card
+4,4340,20000		// Teddy Bear Card
+4,4382,10000		// Yellow Novus Card
+4,4402,22000		// Aliot Card
+4,4378,22000		// Gold Acidus Card
+4,4371,20000		// Archdam Card
+4,4060,7000			// Goblin Card
+4,4157,7000			// Goblin Archer Card
+4,4310,7000			// Panzer Goblin Card
+4,4156,7000			// Goblin Steamrider Card
+4,4155,10000		// Goblin Leader Card
+4,4253,25000		// Alice Card
+4,4113,10000		// Marionette Card
+4,4268,5000			// Injustice Card
+
+// 5: Potion
+5,13718,15000		// Abrasive Box20
+5,32010,20000		// Mental Potion Box
+5,17262,20000		// Ex Def Potion Box
+5,32051,10000		// Acaraje Box
+5,13857,2000		// Popping Candy 5 Box
+5,13858,3500		// Popping Candy 10 Box
+5,12905,4000		// Dragon Breath Cocktail Box
+5,12906,4000		// Hwergelmir's Tonic Box
+5,12903,4000		// Steamed Tongue Box
+5,12907,4000		// Nine Tail Dish Box
+5,12904,4000		// Steamed Scorpion Box
+5,12908,4000		// Stew Of Immortality Box
+5,12914,4000		// Increase AGI 10 scroll Box
+5,12913,4000		// Blessing 10 Scroll Box
+
+// 6: Rental
+6,16682,20000		// Boarding Halter Box
+6,16372,10000		// Four Leaf Clover In Mouth Box
+6,16385,30000		// Four Leaf Clover In Mouth Box2
+6,16389,10000		// Bubble Gum In Mouth Box2
+6,16390,30000		// Bubble Gum In Mouth Box3
+6,14252,25000		// Beholder Ring Box II
+6,14253,25000		// Hallow Ring Box II
+6,14254,25000		// Clamorous Ring Box II
+6,14255,25000		// Chemical Ring Box II
+6,14256,25000		// Insecticide Ring Box II
+6,14257,25000		// Fisher Ring Box II
+6,14258,25000		// Decussate Ring Box II
+6,14259,25000		// Bloody Ring Box II
+6,14260,25000		// Satanic Ring Box II
+6,14261,25000		// Dragoon Ring Box II
+6,12936,5000		// Neo Muramasa Box
+6,13775,5000		// Neo Unholy Touch Box
+6,13770,5000		// Neo Great Axe Box
+6,13767,5000		// Neo Skewer Box
+6,13772,5000		// Neo Hardback Box
+6,13768,5000		// Neo Survival Rod Box
+6,12944,5000		// Neo Ballista Box
+6,12940,5000		// Neo Kaiser Knuckle Box
+6,13956,5000		// Neo Shealter Resistance Box
+
+// 7: Accessory
+7,2751,25000		// Academy Badge
+7,2888,25000		// School Bag [1]
+7,2767,20000		// Acolyte Figure
+7,2769,20000		// Archer Figure
+7,2768,20000		// Mage Figure
+7,2771,20000		// Merchant Figure
+7,2766,20000		// Swordman Figure
+7,2770,20000		// Thief Figure
