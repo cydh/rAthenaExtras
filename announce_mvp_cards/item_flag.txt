@@ -1,0 +1,108 @@
+// Flagged Items
+// <ItemID>,<Flag>
+//
+// <Flag>:
+//  1 - As Dead Branch item (will be logged at `branchlog` table and cannot be used at 'nobranch' mapflag)
+//  2 - As item group container, check player's inventory and weight before consumed
+//  4 - GUID item, cannot be stacked even same or stackable item
+//  8 - Item will be bound item when equipped
+// 16 - Special Broadcast: When item dropped by monster and player loot it, will be broadcasted!
+// 32 - Item will not be removed on consumption. Also supports 'itemskill'
+// 64 - Item will be displayed with a client side defined drop
+// 128 - Item will be displayed with a white pillar drop effect
+// 256 - Item will be displayed with a blue pillar drop effect
+// 512 - Item will be displayed with a yellow pillar drop effect
+// 1024 - Item will be displayed with a purple pillar drop effect
+// 2048 - Item will be displayed with a orange pillar drop effect
+// NOTE: For removing flag by import file, use "-" to remove the flag. Example, 604,-1 will removes flag 1 from Branch_Of_Dead_Tree
+
+// MVP Cards
+4144,16
+4147,16
+4142,16
+4132,16
+4128,16
+4143,16
+4137,16
+4123,16
+4146,16
+4131,16
+4148,16
+4121,16
+4135,16
+4318,16
+4324,16
+4168,16
+4305,16
+4276,16
+4134,16
+2256,16
+4330,16
+4263,16
+2110,16
+4236,16
+4302,16
+4342,16
+4372,16
+4357,16
+4359,16
+4361,16
+4363,16
+4367,16
+4365,16
+4352,16
+4374,16
+4376,16
+4399,16
+4386,16
+4403,16
+4407,16
+4408,16
+4419,16
+4425,16
+4430,16
+4441,16
+4145,16
+27162,16
+4456,16
+4169,16
+27126,16
+6414,16
+4507,16
+4143,16
+4074,16
+4144,16
+4134,16
+4127,16
+4132,16
+4147,16
+4210,16
+4419,16
+4330,16
+4246,16
+4374,16
+4441,16
+4410,16
+4407,16
+4430,16
+4361,16
+4359,16
+4520,16
+4509,16
+4525,16
+4565,16
+4563,16
+4561,16
+4562,16
+4564,16
+4560,16
+4566,16
+4578,16
+4576,16
+4574,16
+4580,16
+4592,16
+4652,16
+4147,16
+27164,16
+4625,16
